@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.main-container--Light-Grayish-Blue {
+  background-color: hsl(210, 46%, 95%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  border-radius: 0.6rem;
+  background-color: white;
+}
+.card__image {
+  max-width: 100%;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 23%;
+     object-position: 50% 23%;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.card__container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  row-gap: 1rem;
+}
+.card__heading {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.card__heading--Very-Dark-Grayish-Blue {
+  color: hsl(217, 19%, 35%);
+}
+.card__description {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.card__description--Desaturated-Dark-Blue {
+  color: hsl(214, 17%, 51%);
+}
+.card__profile-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.card__profile-image {
+  max-width: 36px;
+  border-radius: 50%;
+}
+.card__profile-name {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.8125rem;
+}
+.card__profile-name--Very-Dark-Grayish-Blue {
+  color: hsl(217, 19%, 35%);
+}
+.card__profile-date {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8125rem;
+}
+.card__profile-date--Grayish-Blue {
+  color: hsl(212, 23%, 69%);
+}
+.card__share-container {
+  margin-left: auto;
+  border-radius: 50%;
+}
+.card__share-icon {
+  position: relative;
+  min-width: 30px;
+  min-height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  z-index: 2;
+}
+.card__share-icon path {
+  fill: hsl(217, 19%, 35%);
+}
+.card__share-icon--Light-Grayish-Blue {
+  background-color: hsl(210, 46%, 95%);
+}
+.card__share-menu {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 1rem 2rem;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  list-style: none;
+  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  background-color: hsl(217, 19%, 35%);
+}
+.card__share-menu a {
+  text-decoration: none;
+}
+.card__list-text {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 5px;
+}
+.card__list-text-Grayish-Blue {
+  color: hsl(212, 23%, 69%);
+}
+.card__list-icon {
+  vertical-align: middle;
+}
+.card__share-icon--active {
+  background-color: hsl(214, 17%, 51%);
+}
+.card__share-icon--active path {
+  fill: hsl(210, 46%, 95%);
+}
+.card__share-menu--active {
+  display: flex;
+  z-index: 1;
+}
+
+@media screen and (min-width: 56.25rem) {
+  .card {
+    position: relative;
+    max-width: 47.5rem;
+    flex-direction: row;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+  }
+  .card__image {
+    max-width: 300px;
+    max-height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: top left;
+       object-position: top left;
+    border-radius: 0.6rem 0 0 0.6rem;
+  }
+  .card__heading {
+    font-size: 1.35rem;
+  }
+  .card__profile-container {
+    position: static;
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
+  .card__share-menu {
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    bottom: 31%;
+    right: -9%;
+    border-radius: 0.6rem;
+  }
+  .card__share-menu::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 11px;
+    bottom: -10px;
+    right: 43%;
+    -webkit-clip-path: polygon(50% 100%, 100% 0, 0 0);
+            clip-path: polygon(50% 100%, 100% 0, 0 0);
+    background-color: hsl(217, 19%, 35%);
+  }
+}/*# sourceMappingURL=style.css.map */

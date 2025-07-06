@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+//  Colors
+$Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+$Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+$Grayish-Blue: hsl(212, 23%, 69%);
+$Light-Grayish-Blue: hsl(210, 46%, 95%);
+
+//  Font-Weights
+$Weight-Medium: 500;
+$Weight-Bold: 700;
+
+//  Font-Size
+$Font-Default: 0.8125rem; //13px
+
+
+@mixin manrope($weight) {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  
+  &--Light-Grayish-Blue {
+    background-color: $Light-Grayish-Blue;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  border-radius: 0.6rem;
+  background-color: white;
+  
+  &__image {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: 50% 23%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    row-gap: 1rem;
+  }
+  
+  &__heading {
+    @include manrope($Weight-Bold);
+    font-size: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  
+  &__heading--Very-Dark-Grayish-Blue {
+    color: $Very-Dark-Grayish-Blue;
+  }
+  
+  &__description {
+    @include manrope($Weight-Medium);
+    font-size: $Font-Default;
+    line-height: 1.6;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  
+  &__description--Desaturated-Dark-Blue {
+    color: $Desaturated-Dark-Blue;
+  }
+  
+  &__profile-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    column-gap: 1rem;
+  }
+  
+  &__profile-image {
+    max-width: 36px;
+    border-radius: 50%;
+  }
+  
+  &__profile-name {
+    @include manrope($Weight-Bold);
+    font-size: $Font-Default;
+  }
+  
+  &__profile-name--Very-Dark-Grayish-Blue {
+    color: $Very-Dark-Grayish-Blue;
+  }
+  
+  &__profile-date {
+    @include manrope($Weight-Medium);
+    font-size: $Font-Default;
+  }
+  
+  &__profile-date--Grayish-Blue {
+    color: $Grayish-Blue;
+  }
+  
+  &__share-container {
+    margin-left: auto;
+    border-radius: 50%;
+  }
+  
+  &__share-icon {
+    position: relative;
+    min-width: 30px;
+    min-height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    z-index: 2;
+    
+    path {
+      fill: $Very-Dark-Grayish-Blue;
+    }
+  }
+  
+  &__share-icon--Light-Grayish-Blue {
+    background-color: $Light-Grayish-Blue;
+  }
+  
+  &__share-menu {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 1rem 2rem;
+    align-items: center;
+    column-gap: 1rem;
+    list-style: none;
+    border-bottom-right-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    background-color: $Very-Dark-Grayish-Blue;
+  }
+  
+  &__share-menu a {
+    text-decoration: none;
+  }
+  
+  &__list-text {
+    @include manrope($Weight-Medium);
+    text-transform: uppercase;
+    font-size: $Font-Default;
+    letter-spacing: 5px;
+  }
+  
+  &__list-text-Grayish-Blue {
+    color: $Grayish-Blue;
+  }
+  
+  &__list-icon {
+    vertical-align: middle;
+  }
+  
+  &__share-icon--active {
+    background-color: $Desaturated-Dark-Blue;
+    
+    path {
+      fill: $Light-Grayish-Blue;
+    }
+  } 
+  
+  &__share-menu--active {
+    display: flex;
+    z-index: 1; 
+  }
+}
+
+@media screen and (min-width: 56.25rem) {
+  
+  .card {
+    position: relative;
+    max-width: 47.5rem; // 760px
+    flex-direction: row;
+    column-gap: 1rem;
+    
+    &__image {
+      max-width: 300px;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      border-radius: 0.6rem 0 0 0.6rem; // top-left and bottom-left
+    }
+    
+    &__heading {
+      font-size: 1.35rem;
+    }
+    
+    &__profile-container {
+      position: static;
+      padding-top: 0;
+      padding-bottom: 2rem;
+    }
+    
+    &__share-menu {
+      min-width: fit-content;
+      min-height: fit-content;
+      bottom: 31%;
+      right: -9%;
+      border-radius: 0.6rem;
+    }
+    
+    &__share-menu::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 11px;
+      bottom: -10px;
+      right: 43%;
+      clip-path: polygon(50% 100%,100% 0,0 0); // triangle
+      background-color: $Very-Dark-Grayish-Blue;
+    }
+  }
+}
